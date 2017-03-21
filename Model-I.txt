@@ -1,0 +1,30 @@
+
+
+# #SDS 384.7    HW6 Model-I     Fall 2016 
+# Building a Bayesian Model in OpenBUGS
+# Bayesian Inferences after Fitting a Normal Linear 
+# Regression, with INTERACTION TERMS.
+# Data Source: Forced Expiratory Volume (FEV) Data, 
+# as introduced on page 162 of CJBH Text 
+
+model{
+for(i in 1:n){
+	FEV[i] ~ dnorm(mu[i],tau)
+	mu[i] <- beta[1] + beta[2]*Smoke[i]}
+
+ # Diffuse prior
+beta[1] ~ dnorm(0,0.001) 
+beta[2] ~ dnorm(0,0.001)
+
+tau ~ dgamma(0.01,0.001)
+
+## Predict the FEV of a new kid who smokes
+FEVs ~ dnorm(mus,tau)
+mus <-  beta[1] + beta[2] 
+
+## Test H0: beta2 > 0
+post.prob.beta2 <- step(beta[2])
+
+# Monitor DIC separately from Inference > DIC menu
+}
+

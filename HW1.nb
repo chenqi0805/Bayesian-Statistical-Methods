@@ -1,0 +1,660 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[     22511,        659]
+NotebookOptionsPosition[     19699,        572]
+NotebookOutlinePosition[     20063,        588]
+CellTagsIndexPosition[     20020,        585]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["SDS 384.7 HW1", "Title",
+ CellChangeTimes->{{3.681612276217442*^9, 3.6816122973213243`*^9}}],
+
+Cell["Qi Chen(qc586)", "Author",
+ CellChangeTimes->{{3.682111427800191*^9, 3.682111432253183*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Problem 1", "Section",
+ CellChangeTimes->{{3.681612313559264*^9, 3.68161235074496*^9}, {
+  3.681615089996448*^9, 3.681615095381242*^9}}],
+
+Cell["Define/state these concepts/results:", "TextNoIndent",
+ CellChangeTimes->{3.681615097346603*^9}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Population: A set of similar items or events which is of interest for some \
+question or experiment\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+  3.6816124720941353`*^9, 3.6816124752230787`*^9}}],
+
+Cell["\<\
+Population Data: The collection of data that describes similar items or \
+events in the population\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+  3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+  3.681612570870449*^9}, {3.6816126019760838`*^9, 3.6816126433871737`*^9}}],
+
+Cell["\<\
+Parameter: Numerical descriptive measures to characterize distribution \
+functions.\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+  3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+  3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612663496564*^9}, {
+  3.6816134840564404`*^9, 3.681613506810533*^9}}],
+
+Cell["Sample: A subset selected from the population", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+  3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+  3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612704017406*^9}}],
+
+Cell["\<\
+Statistic: A statistic is a function of the observable random variables in a \
+sample and known constants.\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9}],
+
+Cell["\<\
+Statistics: A branch of mathematics dealing with the collection, analysis, \
+interpretation, and presentation of masses of numerical data. Its objective \
+is inference making.\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9, {3.681612910941777*^9, 3.681612922340949*^9}, {
+   3.681612959490428*^9, 3.681612993723804*^9}}],
+
+Cell["\<\
+Sampling distribution of a statistic in classical / frequentist inference.: \
+The probability distribution of a statistic of sample random variables that \
+describes the relative frequency of making the same observation in a large \
+number of sampling experiments.\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9, {3.681613022419188*^9, 3.681613025860158*^9}, {
+   3.6822775819703827`*^9, 3.6822777233903646`*^9}, 3.6822777559153423`*^9}],
+
+Cell["\<\
+Test statistic in classical / frequentist inference.: Test of a statistical \
+hypothesis based on the frequency or proportion of the data.\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9, 3.681613034623892*^9, 3.6816133645130873`*^9, {
+   3.681614554657238*^9, 3.681614588779516*^9}, {3.68161469289458*^9, 
+   3.681614738565716*^9}}],
+
+Cell["\<\
+P-value in classical / frequentist inference.: The p-value is defined based \
+on the frequency or proportion of the data as the smallest probability for \
+which the observed data indicate that the null hypothesis should be rejected.\
+\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9, 3.681613034623892*^9, 3.6816133645130873`*^9, {
+   3.681614554657238*^9, 3.681614588779516*^9}, {3.68161469289458*^9, 
+   3.681614738565716*^9}, {3.68161479319503*^9, 3.6816147980712833`*^9}, 
+   3.681614885440001*^9, {3.681614992379732*^9, 3.6816150393890333`*^9}}],
+
+Cell[TextData[{
+ "Random sample: Let ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " represent the numbers of elements in the population and sample, \
+respectively. If the sampling is conducted in such a way that each of the ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["C", "N", "n"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " samples has an equal probability of being selected, the sampling is said \
+to be random, and the result is said to be a random sample."
+}], "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9, {3.6816130442715073`*^9, 3.6816130509490137`*^9}, 
+   3.681613366655356*^9, 3.681613513228406*^9, {3.681613610146*^9, 
+   3.681613639703718*^9}}],
+
+Cell["\<\
+i.i.d data/random variables: A random variable is a real-valued function for \
+which the domain is a sample space.\
+\>", "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9, {3.6816130629668303`*^9, 3.6816130692840023`*^9}, {
+   3.681613369680442*^9, 3.681613371924469*^9}, 3.6816136499148693`*^9, {
+   3.681613763228817*^9, 3.681613767423093*^9}}],
+
+Cell[TextData[{
+ "C.L.T for the sample average: Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["Y", "1"], ",", 
+    SubscriptBox["Y", "2"], ",", "\[Ellipsis]", ",", 
+    SubscriptBox["Y", "n"]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " be independent and identically distributed sample variables with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"E", "(", 
+     SubscriptBox["Y", "i"], ")"}], "=", "\[Mu]"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"V", "(", 
+     SubscriptBox["Y", "i"], ")"}], "=", 
+    RowBox[{
+     SuperscriptBox["\[Sigma]", "2"], "<", "\[Infinity]"}]}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". Then the distribution function of the sample average ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["Y", "_"], "=", 
+    RowBox[{
+     FractionBox["1", "n"], 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"i", "=", "1"}], "n"], 
+      SubscriptBox["Y", "i"]}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " has the following limit:"
+}], "Item",
+ CellChangeTimes->{{3.681612339429286*^9, 3.681612343688066*^9}, {
+   3.6816124720941353`*^9, 3.68161248217094*^9}, {3.681612569534135*^9, 
+   3.681612570870449*^9}, {3.6816126019760838`*^9, 3.681612720999145*^9}, 
+   3.681612838490494*^9, {3.6816130629668303`*^9, 3.6816130828884563`*^9}, {
+   3.681613124570239*^9, 3.6816132900532637`*^9}, {3.68161333100408*^9, 
+   3.6816133551668463`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     OverscriptBox["Y", "_"], "-", "\[Mu]"}], 
+    RowBox[{"\[Sigma]", "/", 
+     SqrtBox["n"]}]], 
+   OverscriptBox["~", 
+    RowBox[{"n", "\[Rule]", "\[Infinity]"}]], 
+   RowBox[{"N", "(", 
+    RowBox[{"0", ",", "1"}], ")"}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.6816132655118113`*^9, 3.681613326577517*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 2", "Section",
+ CellChangeTimes->{{3.681615079948737*^9, 3.681615085378482*^9}}],
+
+Cell["\<\
+Explain why P-value in classical / frequentist inference is a frequentist \
+summary.\
+\>", "TextNoIndent",
+ CellChangeTimes->{3.681615103411475*^9}],
+
+Cell["\<\
+Solution: p-value in classical/frequentist inference is the probability of \
+obtaining a value for the test statistic that is at least as extreme as the \
+one that was actually observed, assuming that the null hypothesis is true. In \
+large sampling, p-value is the relative frequency of the times the values are \
+at least as extreme as the one that was observed. As a result, it is a \
+frequentist summary of the test statistic.\
+\>", "TextNoIndent",
+ CellChangeTimes->{{3.6821112219023314`*^9, 3.682111405075115*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 3", "Section",
+ CellChangeTimes->{{3.681615079948737*^9, 3.681615085378482*^9}, {
+  3.6816151608112907`*^9, 3.681615160966138*^9}}],
+
+Cell["\<\
+Reverend Thomas Bayes, the inventor of Bayes Theorem, and the French \
+mathematician Laplace addressed this problem in the 18th century: how should \
+we estimate the proportion of female births, \[Theta], in a population? In \
+one data set from that era, a total of 241945 girls were observed in a sample \
+of 493472 births in Paris from 1745 to 1770. Find a classical/frequentist 95% \
+confidence interval for \[Theta] and give its interpretation.\
+\>", "TextNoIndent",
+ CellChangeTimes->{{3.681615164895007*^9, 3.681615188983617*^9}, {
+  3.681615238599119*^9, 3.6816152702158403`*^9}}],
+
+Cell[TextData[{
+ "Solution: The sample variables ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["X", "1"], ",", "\[Ellipsis]", ",", 
+    SubscriptBox["X", "n"]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " obeys ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Bin", "(", 
+    RowBox[{"1", ",", "p"}], ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " with mean and standard deviation given by"
+}], "TextNoIndent",
+ CellChangeTimes->{{3.681615487051491*^9, 3.6816154890709953`*^9}, {
+  3.6816386755308123`*^9, 3.6816387148694763`*^9}, {3.681638757603908*^9, 
+  3.6816387730301037`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"\[Mu]", "=", "p"}], ",", " ", 
+   RowBox[{"\[Sigma]", "=", 
+    SqrtBox[
+     RowBox[{"p", "(", 
+      RowBox[{"1", "-", "p"}], ")"}]]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.6816387787553463`*^9, 3.681638785742012*^9}, {
+  3.681638818154439*^9, 3.681638853873004*^9}}],
+
+Cell[TextData[{
+ "for large n, the proportion \[Theta] is the sample average ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["X", "_"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " obeys normal distribution with"
+}], "TextNoIndent",
+ CellChangeTimes->{{3.681638879932276*^9, 3.681638907092813*^9}, {
+  3.681638959528056*^9, 3.681638959896079*^9}, {3.681639046600409*^9, 
+  3.6816390615089693`*^9}, {3.681639317405723*^9, 3.681639330351116*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    SubscriptBox["\[Mu]", 
+     OverscriptBox["X", "_"]], "=", "p"}], ",", " ", 
+   RowBox[{
+    SubscriptBox["\[Sigma]", 
+     OverscriptBox["X", "_"]], "=", 
+    SqrtBox[
+     FractionBox[
+      RowBox[{"p", "(", 
+       RowBox[{"1", "-", "p"}], ")"}], "n"]]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.681638961749373*^9, 3.681638983242813*^9}}],
+
+Cell["Then the CI is given by", "TextNoIndent",
+ CellChangeTimes->{{3.6816390256081038`*^9, 3.68163903089587*^9}}],
+
+Cell[BoxData[{
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    SubscriptBox["z", 
+     FractionBox["\[Alpha]", "2"]]}], "\[LessEqual]", 
+   FractionBox[
+    RowBox[{"\[Theta]", "-", 
+     SubscriptBox["\[Mu]", 
+      OverscriptBox["X", "_"]]}], 
+    SubscriptBox["\[Sigma]", 
+     OverscriptBox["X", "_"]]], "\[LessEqual]", 
+   SubscriptBox["z", 
+    FractionBox["\[Alpha]", "2"]]}], 
+  TraditionalForm], "\[IndentingNewLine]", 
+ FormBox[
+  RowBox[{"\[Implies]", 
+   RowBox[{
+    RowBox[{"-", 
+     SubscriptBox["z", "0.025"]}], "\[LessEqual]", 
+    FractionBox[
+     RowBox[{"\[Theta]", "-", "p"}], 
+     SqrtBox[
+      FractionBox[
+       RowBox[{"p", "(", 
+        RowBox[{"1", "-", "p"}], ")"}], "n"]]], "\[LessEqual]", 
+    SubscriptBox["z", "0.025"]}]}], 
+  TraditionalForm]}], "DisplayFormulaNumbered",
+ CellChangeTimes->{
+  3.681639034769065*^9, {3.681639094228161*^9, 3.681639153756926*^9}, {
+   3.681639202979369*^9, 3.681639250742391*^9}}],
+
+Cell[TextData[{
+ "We use our point estimater for ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ":"
+}], "TextNoIndent",
+ CellChangeTimes->{{3.68163937199335*^9, 3.681639384565394*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   OverscriptBox["p", "^"], "=", 
+   RowBox[{
+    FractionBox["241945", "493472"], "\[TildeTilde]", "0.490291"}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.681639386189453*^9, 3.6816394403453417`*^9}, {
+  3.681639621205455*^9, 3.681639621731476*^9}}],
+
+Cell["Then", "TextNoIndent",
+ CellChangeTimes->{{3.681639443209052*^9, 3.681639443798799*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1.96"}], "\[LessEqual]", 
+    FractionBox[
+     RowBox[{"\[Theta]", "-", "0.490"}], 
+     SqrtBox[
+      FractionBox[
+       RowBox[{"0.490", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "0.490"}], ")"}]}], "493472"]]], "\[LessEqual]", 
+    "1.96"}], "\[Implies]", 
+   RowBox[{
+    RowBox[{"0.490291", "-", 
+     RowBox[{"1.96", "\[Times]", "0.0007"}]}], "\[LessEqual]", "\[Theta]", 
+    "\[LessEqual]", 
+    RowBox[{"0.490291", "+", 
+     RowBox[{"1.96", "\[Times]", "0.0007"}]}]}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.68163945039571*^9, 3.681639527094665*^9}, {
+  3.6816395654918747`*^9, 3.681639635036008*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"p", "=", 
+   RowBox[{"N", "[", 
+    FractionBox["241945", "493472"], "]"}]}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.681639420281032*^9, 3.681639422411952*^9}, {
+  3.681639519570627*^9, 3.6816395198677692`*^9}}],
+
+Cell[BoxData["0.49029124246157835`"], "Output",
+ CellChangeTimes->{{3.6816394167386293`*^9, 3.681639422719844*^9}, 
+   3.6816395202895803`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[Sigma]", "=", 
+  SqrtBox[
+   RowBox[{"p", 
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{"1", "-", "p"}], ")"}], "493472"]}]]}]], "Input",
+ CellChangeTimes->{{3.681639529902876*^9, 3.681639547163451*^9}}],
+
+Cell[BoxData["0.0007116342763128002`"], "Output",
+ CellChangeTimes->{3.681639547909453*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 4", "Section",
+ CellChangeTimes->{{3.681615079948737*^9, 3.681615085378482*^9}, {
+  3.6816151373140182`*^9, 3.681615137745743*^9}}],
+
+Cell["\<\
+In the context of question #3, pretend that in another random sample of 100 \
+births,\
+\>", "TextNoIndent",
+ CellChangeTimes->{3.681615143363785*^9}],
+
+Cell["\<\
+All are girls. What does the classical/frequentist 95% confidence interval \
+method for \[Theta] provide for this sample?\
+\>", "Item",
+ CellChangeTimes->{{3.68161520221038*^9, 3.681615207299478*^9}}],
+
+Cell[TextData[{
+ "Solution: For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["p", "^"], "=", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", "
+}], "TextNoIndent",
+ CellChangeTimes->{{3.681615527936152*^9, 3.681615530095108*^9}, {
+  3.681639726305895*^9, 3.6816397779930162`*^9}, {3.68163985659833*^9, 
+  3.681639868112397*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["\[Sigma]", 
+    OverscriptBox["X", "_"]], "=", 
+   RowBox[{
+    SqrtBox[
+     FractionBox[
+      RowBox[{
+       OverscriptBox["p", "^"], "(", 
+       RowBox[{"1", "-", 
+        OverscriptBox["p", "^"]}], ")"}], "n"]], "=", "0"}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.681639869883031*^9, 3.6816398845506163`*^9}, {
+  3.681639959128372*^9, 3.681639962377267*^9}}],
+
+Cell[TextData[{
+ "So CI is just ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Theta]", "=", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " for any confidence level."
+}], "TextNoIndent",
+ CellChangeTimes->{{3.681639889520179*^9, 3.6816399333197403`*^9}}],
+
+Cell["\<\
+All are boys. What does the classical/frequentist 95% confidence interval \
+method for \[Theta] provide for this sample?\
+\>", "Item",
+ CellChangeTimes->{{3.68161520221038*^9, 3.681615224792624*^9}}],
+
+Cell[TextData[{
+ "Solution: For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["p", "^"], "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ","
+}], "TextNoIndent",
+ CellChangeTimes->{{3.681615549420361*^9, 3.681615551312463*^9}, {
+  3.681639941651773*^9, 3.681639947349667*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["\[Sigma]", 
+    OverscriptBox["X", "_"]], "=", 
+   RowBox[{
+    SqrtBox[
+     FractionBox[
+      RowBox[{
+       OverscriptBox["p", "^"], "(", 
+       RowBox[{"1", "-", 
+        OverscriptBox["p", "^"]}], ")"}], "n"]], "=", "0"}]}], 
+  TraditionalForm]], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.681639951640416*^9, 3.6816399560878563`*^9}}],
+
+Cell[TextData[{
+ "So CI is just ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Theta]", "=", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " for any confidence level."
+}], "TextNoIndent",
+ CellChangeTimes->{{3.681639889520179*^9, 3.6816399333197403`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 5", "Section",
+ CellChangeTimes->{{3.681615079948737*^9, 3.681615085378482*^9}, {
+  3.6816151232254543`*^9, 3.68161512340357*^9}}],
+
+Cell["\<\
+Consider the set of the annual incomes of all full-time employees of \
+UT-Austin. Assume that the average income in this group is $50,000. What do \
+you need to assume about this group for this number to be a parameter? In \
+what situations can it be a statistic? Explain.\
+\>", "TextNoIndent",
+ CellChangeTimes->{3.681615115693049*^9}],
+
+Cell[TextData[{
+ "Solution: We need to assume that the sample average obeys certain \
+distribution function. For example, if the sample size ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is large enough, we could assume CLT applies and the average income \
+becomes the mean of the normal distribution. According to the definition of a \
+statistic, for the average income $50,000 to be an observed value of a \
+statistic, we need to know the sample distribution of the sample variable ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["X", "1"], ",", 
+    SubscriptBox["X", "2"], ",", "\[Ellipsis]", ",", 
+    SubscriptBox["X", "n"]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and the sample size ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "."
+}], "TextNoIndent",
+ CellChangeTimes->{{3.681640517234405*^9, 3.6816405203334007`*^9}, {
+  3.681640915231379*^9, 3.681640940095256*^9}, {3.681641332111785*^9, 
+  3.681641580586626*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 691},
+WindowMargins->{{Automatic, 247}, {-17, Automatic}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 29, \
+2015)",
+StyleDefinitions->"Cambria Article.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 98, 1, 77, "Title"],
+Cell[523, 18, 98, 1, 58, "Author"],
+Cell[CellGroupData[{
+Cell[646, 23, 142, 2, 69, "Section"],
+Cell[791, 27, 102, 1, 22, "TextNoIndent"],
+Cell[CellGroupData[{
+Cell[918, 32, 242, 5, 26, "Item"],
+Cell[1163, 39, 337, 6, 26, "Item"],
+Cell[1503, 47, 371, 7, 26, "Item"],
+Cell[1877, 56, 274, 3, 26, "Item"],
+Cell[2154, 61, 371, 7, 26, "Item"],
+Cell[2528, 70, 536, 9, 47, "Item"],
+Cell[3067, 81, 653, 10, 68, "Item"],
+Cell[3723, 93, 548, 9, 47, "Item"],
+Cell[4274, 104, 765, 12, 47, "Item"],
+Cell[5042, 118, 1014, 23, 70, "Item"],
+Cell[6059, 143, 553, 9, 26, "Item"],
+Cell[6615, 154, 1533, 45, 73, "Item"]
+}, Open  ]],
+Cell[8163, 202, 409, 13, 60, "DisplayFormulaNumbered"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8609, 220, 94, 1, 69, "Section"],
+Cell[8706, 223, 158, 4, 22, "TextNoIndent"],
+Cell[8867, 229, 530, 8, 85, "TextNoIndent"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9434, 242, 145, 2, 69, "Section"],
+Cell[9582, 246, 597, 9, 85, "TextNoIndent"],
+Cell[10182, 257, 615, 18, 22, "TextNoIndent"],
+Cell[10800, 277, 351, 10, 40, "DisplayFormulaNumbered"],
+Cell[11154, 289, 453, 10, 22, "TextNoIndent"],
+Cell[11610, 301, 426, 14, 58, "DisplayFormulaNumbered"],
+Cell[12039, 317, 114, 1, 22, "TextNoIndent"],
+Cell[12156, 320, 944, 30, 131, "DisplayFormulaNumbered"],
+Cell[13103, 352, 224, 7, 22, "TextNoIndent"],
+Cell[13330, 361, 315, 8, 48, "DisplayFormulaNumbered"],
+Cell[13648, 371, 94, 1, 22, "TextNoIndent"],
+Cell[13745, 374, 719, 21, 78, "DisplayFormulaNumbered"],
+Cell[CellGroupData[{
+Cell[14489, 399, 257, 6, 49, "Input"],
+Cell[14749, 407, 143, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14929, 414, 234, 7, 66, "Input"],
+Cell[15166, 423, 91, 1, 28, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15306, 430, 145, 2, 69, "Section"],
+Cell[15454, 434, 159, 4, 22, "TextNoIndent"],
+Cell[15616, 440, 210, 4, 26, "Item"],
+Cell[15829, 446, 357, 11, 22, "TextNoIndent"],
+Cell[16189, 459, 449, 14, 72, "DisplayFormulaNumbered"],
+Cell[16641, 475, 266, 8, 22, "TextNoIndent"],
+Cell[16910, 485, 209, 4, 26, "Item"],
+Cell[17122, 491, 306, 10, 22, "TextNoIndent"],
+Cell[17431, 503, 400, 13, 72, "DisplayFormulaNumbered"],
+Cell[17834, 518, 266, 8, 22, "TextNoIndent"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18137, 531, 144, 2, 69, "Section"],
+Cell[18284, 535, 346, 6, 64, "TextNoIndent"],
+Cell[18633, 543, 1038, 25, 85, "TextNoIndent"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

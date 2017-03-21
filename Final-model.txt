@@ -1,0 +1,40 @@
+
+
+# SDS 384.7 Bayesian Statistical Methods Fall 2016 FINAL Exam (Take-Home) Fall 2016 
+# Building a Bayesian Model in OPENBUGS# Bayesian Inferences for Comparing three normal populations# Data Source: Simulate in R Data from the 3
+# populations and export them to OpenBUGS
+
+model{
+
+for( i in 1 : n[1]) { y1[i] ~ dnorm(mu1,tau)} 
+for( i in 1 : n[2]) { y2[i] ~ dnorm(mu2,tau)}
+for( i in 1 : n[3]) { y3[i] ~ dnorm(mu3,tau)}
+
+# A Priori, mu1, mu2, mu3 and tau are mutually independent# Marginal proper diffuse priors
+mu1 ~ dnorm( 0.0,1.0E-6)
+mu2 ~ dnorm( 0.0,1.0E-6)
+mu3 ~ dnorm( 0.0,1.0E-6)
+tau ~ dgamma(0.01,0.001)
+
+# delta 
+delta <- mu1-mu2
+
+# W|theta
+W~ dnorm(mu.W, tau.W) 
+mu.W<- mu1-mu2+mu3tau.W<- tau/3.0
+
+# test H_0: 2 mu_1<mu_2<mu_3 vs H_1: H_0 is not true
+delta1 <- mu2-(2*mu1)
+delta2 <- mu3-mu2 
+post.prob.h0 <- step(delta1)*step(delta2)
+
+# predictive probability that y1.26 is at most 9.5
+y1.26 ~ dnorm(mu1,tau)
+pred.prob.y1.26 <- step(9.5-y1.26)
+
+# gamma=Prob(y1.26<=9.5|mu1,tau)
+gamma <- phi((9.5-mu1)*sqrt(tau))
+
+# Monitor DIC separately from Inference > DIC menu
+}
+

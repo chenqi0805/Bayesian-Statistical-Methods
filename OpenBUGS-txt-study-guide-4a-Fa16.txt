@@ -1,0 +1,45 @@
+
+
+# #SDS 384.7    Study Guide # 4a     Fall 2016 
+# Building a Bayesian Model in OpenBUGS
+# Bayesian Inferences after Fitting a Normal Linear 
+# Regression, with INTERACTION TERMS.
+# Data Source: Forced Expiratory Volume (FEV) Data, 
+# as introduced on page 162 of CJBH Text 
+
+model{
+for(i in 1:n){
+	FEV[i] ~ dnorm(mu[i],tau)
+	mu[i] <- beta[1] + beta[2]*Age[i] + beta[3]*Smoke[i]  + beta[4]*Age[i]*Smoke[i]}
+
+ # Diffuse prior
+beta[1] ~ dnorm(0,0.001) 
+beta[2] ~ dnorm(0,0.001)
+beta[3] ~ dnorm(0,0.001)
+beta[4] ~ dnorm(0,0.001)
+tau ~ dgamma(0.01,0.001)
+
+## Estimate mean FEV for smokers and nonsmokers who are 10, ..., 19 years old
+for(i in 1:10){
+meanFEVs[i] <-  beta[1] + beta[3] + (i+9)*(beta[2]+beta[4])
+meanFEVns[i] <-  beta[1] + (i+9)*beta[2]}
+
+## Estimate certain mean differences 
+MD11 <-  meanFEVs[2]-meanFEVns[2] ## MD comparing 11 year old smoker to 11 year old nonsmoker
+MD17 <-  meanFEVs[8]-meanFEVns[8] ## MD comparing 17 year old smoker to 17 year old nonsmoker
+
+## Predict the FEV for a 20 year old smoker and nonsmoker
+FEV20s ~ dnorm(mu20s,tau)
+FEV20ns ~ dnorm(mu20ns,tau)
+mu20s <-  beta[1] +  beta[3] + 20*(beta[2]+beta[4]) 
+mu20ns <-  beta[1] + 20*beta[2] 
+
+## Test H0: beta4 < 0
+post.prob1 <- step(-beta[4])
+
+## Test H0: beta2 + beta4 > 0
+post.prob2 <- step(beta[2]+beta[4])
+
+# Monitor DIC separately from Inference > DIC menu
+}
+
